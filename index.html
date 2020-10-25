@@ -14,7 +14,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <h5 class="nav-item active mr-auto">
-        <a class="nav-link text-dark" href="./highscores.html">View Highscores</a>
+        <a class="nav-link" href="./highscores.html">View Highscores</a>
       </h5>  
       <h5 class="navbar-item">Time Left: <span class="timer">75</span></h5>
     </nav>
@@ -28,11 +28,11 @@
 
     <div id="question-container" class="container hide">
       <div class="col-md-6 mx-auto">
-        <h4 class="question">Question</h3>
-        <button class="btn d-flex mr-auto text-white mb-1">1. answer</button>
-        <button class="btn d-flex mr-auto text-white mb-1">2. answer</button>
-        <button class="btn d-flex mr-auto text-white mb-1">3. answer</button>
-        <button class="btn d-flex mr-auto text-white">4. answer</button>
+        <h4 class="question">Question</h4>
+        <button id="choice-1" class="answer-choice btn d-flex mr-auto text-white mb-1">1. answer</button>
+        <button id="choice-2" class="answer-choice btn d-flex mr-auto text-white mb-1">2. answer</button>
+        <button id="choice-3" class="answer-choice btn d-flex mr-auto text-white mb-1">3. answer</button>
+        <button id="choice-4" class="answer-choice btn d-flex mr-auto text-white">4. answer</button>
       </div>
     </div>
 
@@ -40,8 +40,7 @@
       <div class="col-md-6 mx-auto">
         <h3>All Done!</h3>
         <p>Your final score is <span id="final-score"></span>.</p>
-        <p>Enter initials: <input/> <button class="btn text-white">Submit</button></p>
-        
+        <p>Enter initials: <input/> <button class="submit-btn btn text-white">Submit</button></p>
       </div>
     </div>
 
