@@ -105,9 +105,12 @@ function processAnswers(event) {
 //submit function
 document.querySelector(".submit-btn").addEventListener("click", storeData);
 
-var data = [];
-localStorage.setItem("data", JSON.stringify(data));
 function storeData() {
+    // create a place to store data if there is none
+    if (localStorage.getItem("data") === null) {
+        var data = [];
+        localStorage.setItem("data", JSON.stringify(data));
+    }
     //get the input box value in a var
     var userInput = document.querySelector("#end-container input");
     //check if input is not empty
@@ -115,12 +118,13 @@ function storeData() {
         //get the old data
         data = JSON.parse(localStorage.getItem("data"));
         //create the new data
-        var newDatum = score + "-" + userInput.value;
+        var newDatum = userInput.value + "-" + score;
         //add the new data to old data
         data.push(newDatum);
         //store it
         localStorage.setItem("data", JSON.stringify(data));
         //redirect the user to other html
         window.location.replace("highscores.html");
+        
         };
 }
