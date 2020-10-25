@@ -29,6 +29,11 @@ var questions = [
         question: "Who is the fastest DC hero?",
         choices: ["Green Arrow", "Superman", "Batman", "Flash"],
         answer: "Flash"
+    },
+    {
+        question: "Which of the following heroes is from Queens, New York?",
+        choices: ["Hawkeye", "Spider-man", "Iron-man", "Thor"],
+        answer: "Spider-man"
     }
 ];
 
@@ -86,10 +91,10 @@ function processAnswers(event) {
     //check if the answer is correct
     if (event.target.textContent === questions[index].answer) {
         //add score
-        score++;
+        score = score + 25;
     } else {
         //decrease timer
-        time = time - 5;
+        time = time - 15;
     }
     //increase the index
     index++;
