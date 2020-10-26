@@ -50,6 +50,7 @@ function startQuiz() {
         document.querySelector(".timer").textContent = time;
         //end time end quiz
         if (time <= 0) {
+            document.querySelector("#end-container h3").textContent = "You ran out of time!";
             endQuiz();
         }
     }, 1000);
@@ -88,20 +89,6 @@ for (let i = 0; i < choiceArray.length; i++) {
 }
 
 function processAnswers(event) {
-    //check if the answer is correct
-    if (event.target.textContent === questions[index].answer) {
-        //add score
-        score = score + 25;
-        // show that they're correct
-        document.querySelector("#correct").classList.remove("hide");
-    } else {
-        //decrease timer
-        time = time - 15;
-        // show that they're wrong
-        document.querySelector("#wrong").classList.remove("hide");
-    };
-    //increase the index
-    index++;
     //check if last question
     setTimeout(function() {
         // Hide "correct!" notification
@@ -119,6 +106,21 @@ function processAnswers(event) {
             generateQuestion();
         };
     }, 500);
+    //check if the answer is correct
+    if (event.target.textContent === questions[index].answer) {
+        //add score
+        score = score + 25;
+        // show that they're correct
+        document.querySelector("#correct").classList.remove("hide");
+    } else {
+        //decrease timer
+        time = time - 15;
+        // show that they're wrong
+        document.querySelector("#wrong").classList.remove("hide");
+    };
+    //increase the index
+    index++;
+    
 }
 
 //submit function
