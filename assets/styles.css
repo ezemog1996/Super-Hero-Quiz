@@ -2,6 +2,10 @@
     background-color: purple;
 }
 
+button:focus, button:active {
+    box-shadow: none !important;
+}
+
 .hide {
     display: none;
 }

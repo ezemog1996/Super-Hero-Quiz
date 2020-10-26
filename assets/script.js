@@ -92,19 +92,33 @@ function processAnswers(event) {
     if (event.target.textContent === questions[index].answer) {
         //add score
         score = score + 25;
+        // show that they're correct
+        document.querySelector("#correct").classList.remove("hide");
     } else {
         //decrease timer
         time = time - 15;
-    }
+        // show that they're wrong
+        document.querySelector("#wrong").classList.remove("hide");
+    };
     //increase the index
     index++;
     //check if last question
-    if (index === questions.length) {
-        endQuiz();
-        return;
-    }
-    //show next question
-    generateQuestion();
+    setTimeout(function() {
+        // Hide "correct!" notification
+        if (document.querySelector("#correct").classList.contains("hide") === false) {
+            document.querySelector("#correct").classList.add("hide");
+        }
+        else if (document.querySelector("#wrong").classList.contains("hide") === false) {
+            document.querySelector("#wrong").classList.add("hide");
+        };
+        if (index === questions.length) {
+            endQuiz();
+        }
+        //show next question
+        else {
+            generateQuestion();
+        };
+    }, 500);
 }
 
 //submit function
