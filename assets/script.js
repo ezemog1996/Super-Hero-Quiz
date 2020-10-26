@@ -100,11 +100,10 @@ function processAnswers(event) {
         };
         if (index === questions.length) {
             endQuiz();
+            return
         }
         //show next question
-        else {
-            generateQuestion();
-        };
+        generateQuestion();
     }, 500);
     //check if the answer is correct
     if (event.target.textContent === questions[index].answer) {
